@@ -11,6 +11,7 @@ use App\Models\Hotel;
 use App\Models\AttractionPoint;
 use App\Models\Comment;
 use App\Models\Reaction;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->state(new Sequence(
+            fn ($sequence) =>  ['email' => "user{$sequence->index}@gmail.com"],
+        ))->create();
         \App\Models\Country::factory(10)->has(State::factory()->count(3))->create();
         Tour::factory(50)->create();
         Hotel::factory(20)->create();
