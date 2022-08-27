@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\User\AuthController;
 use App\Http\Controllers\Api\User\TourController;
+use Illuminate\Support\Facades\Broadcast;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 Route::resource('tour', TourController::class);
+
+Broadcast::routes();
