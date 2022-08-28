@@ -2,6 +2,7 @@
 
 namespace App\Events\User;
 
+use App\Models\Tour;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -16,11 +17,12 @@ class NewTourEvent implements ShouldBroadcast
 
     /**
      * Create a new event instance.
+     * @var \App\Models\Tour
      * @return void
      */
 
     public $tour;
-    public function __construct($t)
+    public function __construct(Tour $t)
     {
         $this->tour = $t;
     }
@@ -33,5 +35,10 @@ class NewTourEvent implements ShouldBroadcast
     public function broadcastOn()
     {
         return new Channel('posts');
+    }
+
+    public function broadcastAs()
+    {
+        return 'post.created';
     }
 }
