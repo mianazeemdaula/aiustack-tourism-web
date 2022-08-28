@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\User\NewTourEvent;
+use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/event', function () {
+    return event(new NewTourEvent(Tour::find(2)));
+    // return NewTourEvent::dispatch(Tour::find(1));
 });
