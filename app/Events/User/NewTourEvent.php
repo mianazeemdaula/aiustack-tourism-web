@@ -36,4 +36,9 @@ class NewTourEvent implements ShouldBroadcast
     {
         return new Channel('posts');
     }
+
+    public function broadcastAs()
+    {
+        return 'post.created';
+    }
 }
