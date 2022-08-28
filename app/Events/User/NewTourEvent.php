@@ -17,12 +17,11 @@ class NewTourEvent implements ShouldBroadcast
 
     /**
      * Create a new event instance.
-     * @var \App\Models\Tour
      * @return void
      */
 
     public $tour;
-    public function __construct(Tour $t)
+    public function __construct($t)
     {
         $this->tour = $t;
     }
