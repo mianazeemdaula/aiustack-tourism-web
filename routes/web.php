@@ -21,6 +21,6 @@ Route::get('/', function () {
 
 
 Route::get('/event', function () {
-    return event(new NewTourEvent(Tour::find(2)));
-    // return NewTourEvent::dispatch(Tour::find(1));
+    NewTourEvent::dispatch(Tour::find(1));
+    return "event done";
 });
