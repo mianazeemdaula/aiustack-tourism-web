@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('logo');
             $table->string('name');
+            $table->boolean('internet');
             $table->point('location')->nullable();
+            $table->char('status', 1);
             $table->timestamps();
         });
     }

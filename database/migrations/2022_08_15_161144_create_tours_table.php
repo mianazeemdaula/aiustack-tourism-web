@@ -18,7 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('body');
-            $table->unsignedTinyInteger('type')->default(0);
+            $table->unsignedFloat('price')->default(0);
+            $table->char('currency', 3)->default('PKR');
             $table->timestamps();
         });
     }

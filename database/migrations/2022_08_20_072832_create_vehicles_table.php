@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('seats');
+            $table->char('type', 1)->default('A');
             $table->timestamps();
         });
     }

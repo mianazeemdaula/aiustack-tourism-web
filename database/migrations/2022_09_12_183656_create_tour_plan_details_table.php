@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tour_plans', function (Blueprint $table) {
+        Schema::create('tour_plan_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tour_id');
-            $table->unsignedBigInteger('vehicle_id');
-            $table->date('start_date');
-            $table->longText('terms');
+            $table->unsignedBigInteger('tour_plan_id');
+            $table->date('_date');
+            $table->char('activity', 1)->default('V'); // V=visit, T=Travel, S=Stay
+            $table->string('details');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tour_plans');
+        Schema::dropIfExists('tour_plan_details');
     }
 };
